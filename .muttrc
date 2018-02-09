@@ -6,6 +6,11 @@ set timeout=10
 set spoolfile="imaps://matthew.whitworth@mail.asperatuscapital.com/"
 bind index G imap-fetch-mail
 
+set sidebar_visible=yes
+set sidebar_delim_chars="/"
+set sidebar_short_path
+set sidebar_new_mail_only
+
 set realname="Matthew Whitworth"
 set from="matthew.whitworth@asperatuscapital.com"
 set smtp_url=smtps://matthew.whitworth@mail.asperatuscapital.com
@@ -23,6 +28,23 @@ color index brightgreen   black ~T
 color index brightwhite   black ~N
 color index brightblue    black ~D
 
+color hdrdefault blue black
+color quoted blue black
+color signature blue black
+color attachment red black
+color prompt brightmagenta black
+color message brightred black
+color error brightred black
+color indicator black red
+color status brightgreen blue
+color tree white black
+color normal white black
+color markers red black
+color search white black
+color tilde brightmagenta black
+color index blue black ~F
+color index red black "~N|~O"
+
 set sort="threads"
 set strict_threads="yes"
 set sort_browser="reverse-date"
@@ -31,8 +53,18 @@ unset collapse_unread
 bind index - collapse-thread
 bind index _ collapse-all
 
+bind pager TABE next-new
+
 set index_format="%4C %Z %{%d %b}  %-15.15F (%4l) %s"
 
-set edit_headers
+#set edit_headers
+
+ignore *
+unignore from date subject to cc
+unignore x-mailer
+unignore x-spam-status
+unignore x-spam-report
 
 set imap_check_subscribed
+
+set pager_index_lines=10
