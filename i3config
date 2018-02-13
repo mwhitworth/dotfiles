@@ -29,6 +29,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym --release button2 kill
+bindsym button3 floating toggle
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
